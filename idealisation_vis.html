@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Idealisation</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel = "stylesheet" href="css/frame_vis.css">
+        <link rel = "stylesheet" href="css/idealisation_vis.css">
+    </head>
+
+    <body>
+        <!--logo-->
+        <a id="logo" href="index.html"><img src="images/logo.webp"></a>
+        
+        <!--page thumbnails-->
+        <div id="page_thumbnails_container"></div>
+
+        <!--progress-->
+        <div id="progress"></div>
+
+        <!--page names-->
+        <div id="page_names"></div>
+
+        <!--content-->
+        <div id="content">
+
+            <!--Aliceblue box-->
+            <div id="section_1">
+                <p id="heading"><b>Idealizing the real world systems</b></p>
+            Here the details unnecessary for solving the problem at hand are stripped off, simplified approximations of the real world are use. .
+            <p id="descript">
+                <br>
+                <input type="range" class="slider" min="0" max="1" step="0.01" value="0" oninput="Changer(this.value)">
+                <ul>
+                    <li id="item1">Details like colour, material particulars, temparture etc are ignored..
+                    </li> <br>
+                    <li class="item2">We consider the effect of medium of uniform density on the oscillating bob. <br></li> <br>
+                    <li class="item2">We update the model to include drag force acting on the person in presence of the medium.<br></li> <br>
+                    <li class="item2">The drag force is proportional to the crosssectional area perpendiculum to motion of the body of the person on the swing and the velocity of the bob.</li>
+                    <li class="item2">Thus the object is approximated as spherical sphere of definite radius.</li>
+
+                </ul> 
+                <p id="item3"><b>Let us now place the system in a co-ordinate space.</b></p>
+            </p>
+            
+            </div>
+
+            <!--White box-->
+            <div id="section_2">
+                    <div id="knob"></div>
+                    <img id="ideal" src="images/Pendulum-Girl-22.svg">
+                    <img id="real" src="images/Pendulum-Girl-111.svg">
+            </div>
+
+        </div> 
+
+        <!--navigation-->
+        <span id="navigator"></span>
+        
+        <!--script after loading page-->
+        <script type="text/javascript" src="js/frame_vis.js"></script>
+        <script type="text/javascript" src="js/idealisation_vis.js"></script>
+    </body>
+
+</html>

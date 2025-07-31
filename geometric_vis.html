@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Geometric</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel = "stylesheet" href="css/frame_vis.css">
+        <link rel = "stylesheet" href="css/geometric_g.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sketch.js/1.0/sketch.min.js" integrity="sha512-kSEyW+qGJr8nB9W0xap8JTmchLnDdjAh5OBrjWQmWbfjRKRNb1goxSWmJbwFN6Gnf+ruF1fmvQhVwYPt/0hKqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+
+    <body>
+        <!--logo-->
+        <a id="logo" href="index.html"><img src="images/logo.webp"></a>
+        
+        <!--page thumbnails-->
+        <div id="page_thumbnails_container"></div>
+
+         <!--progress-->
+        <div id="progress"></div>       
+
+        <!--page names-->
+        <div id="page_names"></div>
+
+        <!--content-->
+        <div id="content">
+
+            <!--Aliceblue box-->
+            <div id="section_1">
+              
+                <p id="heading"><b>Identifying the causal factors</b></p>
+                 Since we are interested in the motion of pendulum bob, the focus of our analysis is the mass point.<br><br>
+                 We identify the casual factors or forces affecting the motion of the mass point<br><br>
+                <input type="checkbox" id="grvty" class="switch" onchange="mark(grvty),gnote()">
+                <label for="grvty"> Gravitational force</label><br>
+                <input type="checkbox" id="vis" class="switch" onchange="mark(vis),vnote()">
+                <label for="vis"> Viscous drag force</label><br>
+                <input type="checkbox" id="boy" class="switch" onchange="mark(boy),bnote()">
+                <label for="velocity"> bob velocity</label><br>
+                <br>Density of medium:<br><br>
+                <input type="range" class="range" id="dnct" min="0" max="2.5" step="0.01" value="0" oninput="densityChanger(this.value)">
+                <br><br><b>Adjust timescale :</b><br>
+                <input type="range" id="slider" min="0" max="1" step="0.01" value="1" oninput="timeChanger(this.value)">
+                <br>
+            </div>
+
+            <!--White box-->
+            <div id="section_2">
+                <div id="infor"> 
+                </div>
+                
+            </div>
+
+        </div> 
+
+        <!--navigation-->
+        <span id="navigator"></span>
+        
+        <!--script after loading page-->
+        <script type="text/javascript" src="js/frame_vis.js"></script>
+        <script type="text/javascript" src="js/geometric_vis.js"></script>
+
+    </body>
+
+</html>

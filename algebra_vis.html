@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Algebra</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel = "stylesheet" href="css/frame_vis.css">
+        <link rel = "stylesheet" href="css/algebra_g.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sketch.js/1.0/sketch.min.js" integrity="sha512-kSEyW+qGJr8nB9W0xap8JTmchLnDdjAh5OBrjWQmWbfjRKRNb1goxSWmJbwFN6Gnf+ruF1fmvQhVwYPt/0hKqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    </head>
+
+    <body>
+        <!--logo-->
+        <a id="logo" href="index.html"><img src="images/logo.webp"></a>
+        
+        <!--page thumbnails-->
+        <div id="page_thumbnails_container"></div>
+
+        <!--progress-->
+        <div id="progress"></div>
+
+        <!--page names-->
+        <div id="page_names"></div>
+
+        <!--content-->
+        <div id="content">
+
+            <!--Aliceblue box-->
+            <div id="section_1">
+                <p id="heading"><b>Algebraic Stage </b></p>
+                    The viscous damping force is proportional to, <br>
+                    $\hskip 2em$ the speed $v$ and opposes the motion.<br>
+                    $\hskip 2em$ the density of the medium $\rho _{m}$, <br>
+                    $\hskip 2em$ the cross section area of the bob $A_{b}$ <br>,
+                    
+                    <text onclick="shw(2)" class="eq"> $ F_{d} \propto \rho_{m}*A_{b}*v^{2}$, <br> $\hskip 2em$ $\Rightarrow F_{d} = C_{v}*\rho _{m}*A_{b}*v^{2} $
+                    </text> 
+                    <br><br>
+                    The general equation of motion is, <br>
+                    <fieldset class="eq" onclick="xplain(2)"> $ \Sigma_{i} \tau_{i} = I\alpha = mL^{2}\frac{d^{2}\theta}{dt^{2}} \hskip 15em$ ..eq(2) </fieldset>
+                    <br>Equation of motion of the pendulum with the torque provided by gravitational, buoyant force and drag force is,
+                    <fieldset class="xp" onclick="xplain(1)">
+                    $$ mL\frac{d^{2}\theta }{dt^{2}} + mg_{e}sin\theta - \rho _{m}V_{bob}g_{e} + C_{m}\rho_{m}A_{b}v^{2} = 0 $$
+                    </fieldset>
+                </p>                        
+            </div>
+
+            <!--white box-->
+            <div id="section_2">      
+            </div>
+
+        </div> 
+
+        <!--navigation-->
+        <span id="navigator"></span>
+        
+        <!--script after loading page-->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script> MathJax = { tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}}; </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script type="text/javascript" src="js/frame_vis.js"></script>
+        <script type="text/javascript" src="js/algebra_vis.js"></script>
+
+    </body>
+
+</html>

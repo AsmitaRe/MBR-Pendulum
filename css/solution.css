@@ -1,0 +1,33 @@
+
+#bar {
+    width: 52vw;
+}
+
+#svgeq{
+    background-color:rgba(63, 231, 231, 0.411);
+    display: block;
+    width: 70%;
+    padding:1vw;
+    margin: auto;
+    border-radius: 1vh;
+  }
+#wquery{
+    background-color: rgba(63, 231, 231, 0.411);
+    -webkit-user-select:text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#section_2{
+    overflow-y: scroll;
+  }
+
+#wolfram{
+    width: 500px;
+    height: 400px;
+}

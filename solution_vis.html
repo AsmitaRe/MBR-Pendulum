@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Solving the equation</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link rel = "stylesheet" href="css/solution_b.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sketch.js/1.0/sketch.min.js" integrity="sha512-kSEyW+qGJr8nB9W0xap8JTmchLnDdjAh5OBrjWQmWbfjRKRNb1goxSWmJbwFN6Gnf+ruF1fmvQhVwYPt/0hKqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <!--logo-->
+    <a id="logo" href="index.html"><img src="images/logo.webp"></a>
+    
+    <!--page thumbnails-->
+    <div id="page_thumbnails_container"></div>
+
+    <!--page names-->
+    <div id="page_names"></div> 
+
+    <!--progress-->
+    <div id="progress"></div>
+    
+    <!--content-->
+    <div id="content">
+
+        <!--Aliceblue box-->
+        <div id="section_1">
+
+            <p id="heading"><b>Equation of motion<br> </b></p>
+            <div id="mimic">
+                <img id="eom" src="images/equationOfMotion.svg">
+              <div id="mimic2">
+                <div id="t1" class="terms">1</div>
+                <span id="t2" class="terms">2</span>
+                <span id="t3" class="terms">3</span>
+                <span id="t4" class="terms">4</span>
+                <span id="t5" class="terms">5</span>
+                <span id="t6" class="terms">6</span>
+                <span id="t7" class="terms">7</span>
+                <span id="t8" class="terms">8</span> 
+              </div>
+            </div>
+            <div id="gearbox"> Set the parameters of the pendulum and the medium:
+            <br><br>length : <input type="range" class="range" min="0.1" max="1.5" step="0.01" value="1" oninput="lengthChanger(this.value)"><span id="lc">1</span>m
+            <br><br>gravity :
+            <input type="range" class="range" min="0" max="20" step="0.1" value="9.8" oninput="gravityChanger(this.value)"><span id="gc">9.8</span>m/s<sup>2</sup>
+            <br><br>mass of bob :
+            <input type="range" class="range" min="1" max="50" step="1" value="2" oninput="massChanger(this.value)"><span id="mc">2</span>kg
+            <br><br>radius of bob :
+            <input type="range" class="range" min="0.01" max="0.4" step="0.1" value="0.15" oninput="radiusChanger(this.value)"><span id="rc">0.15</span>m
+            <br><br>density of medium :
+            <input type="range" class="range" min="0" max="5" step="0.01" value="2.40" oninput="densityChanger(this.value)"><span id="dc">2.40</span>kg/m<sup>3</sup>
+            <br><br>amplitude theta:
+            <input type="range" class="range" min="-30" max="30" step="1" value="20" oninput="thetaChanger(this.value)"><span id="tc">20</span><sup>o</sup>
+            <br><br><br> Set the initial angle to apply the set values and restart the oscillation.
+          </div>            
+        </div>
+
+        <!--White box/canvas-->
+        <div id="section_2"> 
+            
+    </div>
+
+    <!--navigation-->
+    <span id="navigator"></span>
+       
+    <!--script after loading page-->
+    <script>
+    MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+    <script type="text/javascript" src="js/frame_vis.js"></script>
+    <script type="text/javascript" src="js/solution_vis.js"></script>
+</body>
+</html>

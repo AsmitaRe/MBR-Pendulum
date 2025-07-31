@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Idealisation</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel = "stylesheet" href="css/frame.css">
+        <link rel = "stylesheet" href="css/idealisation.css">
+    </head>
+
+    <body>
+        <!--logo-->
+        <a id="logo" href="index.html"><img src="images/logo.webp"></a>
+        
+        <!--page thumbnails-->
+        <div id="page_thumbnails_container"></div>
+
+        <!--progress-->
+        <div id="progress"></div>
+
+        <!--page names-->
+        <div id="page_names"></div>
+
+        <!--content-->
+        <div id="content">
+
+            <!--Aliceblue box-->
+            <div id="section_1">
+                <p id="heading"><b>Idealizing the real world systems</b></p>
+            Here the details unnecessary for solving the problem at hand are stripped off, simplified approximations of the real world are use. .
+            <p id="descript">
+                <br>
+                <input type="range" class="slider" min="0" max="1" step="0.01" value="0" oninput="Changer(this.value)">
+                <ul>
+                    <li id="item1">Details like colour, material particulars, temparture etc are ignored..
+                    </li> <br>
+                    <li class="item2">Point mass approximation is used where radius of the bob does not matter, we set the radium to small unit. <br></li> <br>
+                    <li class="item2"> We consider the oscillating systems as a mass point connected to a massless string <br></li> <br>
+                    <li class="item2">To begin with medium is not included.</li>
+
+                </ul> 
+                <p id="item3"><b>Let us now place the system in a co-ordinate space.</b></p>
+            </p>
+            
+            </div>
+
+            <!--White box-->
+            <div id="section_2">
+                    <div id="knob"></div>
+                    <img id="ideal" src="images/pendulum.webp">
+                    <img id="real" src="images/swingingGrayGirl.webp">
+            </div>
+
+        </div> 
+
+        <!--navigation-->
+        <span id="navigator"></span>
+        
+        <!--script after loading page-->
+        <script type="text/javascript" src="js/frame.js"></script>
+        <script type="text/javascript" src="js/idealisation.js"></script>
+
+    </body>
+
+</html>

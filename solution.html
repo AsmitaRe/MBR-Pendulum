@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Solving the equation</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link rel = "stylesheet" href="css/frame.css">
+    <link rel = "stylesheet" href="css/solution.css">
+
+</head>
+
+<body>
+    <!--logo-->
+    <a id="logo" href="index.html"><img src="images/logo.webp"></a>
+    
+    <!--page thumbnails-->
+    <div id="page_thumbnails_container"></div>
+
+    <!--page names-->
+    <div id="page_names"></div> 
+
+    <!--progress-->
+    <div id="progress"></div>
+    
+    <!--content-->
+    <div id="content">
+
+        <!--Aliceblue box-->
+        <div id="section_1">
+            <p id="heading"><b>Solving the equation <br> </b></p>
+        <ul>
+            <li>We have equation of motion as</li>
+            <p>
+                <img id="svgeq" src="images/equation.svg">
+                <br>
+                such differential equations can be solved using tools like WolframAlpha.
+            </p> 
+
+           <li> For example let mass = 1kg, length = 1m , a = 0.1Ns/m and g<sub>e</sub> = 8.8m/s<sup>2</sup></li> 
+        </ul>
+            Then we have , 
+            <p id="wquery">
+               
+                Equation :  dx/dt = - 10d<sup>2</sup>x/dt<sup>2</sup> - 88sinx <br>
+                Initial condition : x(0) = 1, x'(0) = 0 <br>
+                Interval : from 0 to 20<br>
+            </p>
+            Copy and paste above terms into the widget
+
+
+            
+        </div>
+
+        <!--White box/canvas-->
+        <div id="section_2">             
+          <div id="wolfrm">
+                <script type="text/javascript" id="WolframAlphaScript9a998391102589c4f621a21fa9a2c656" src="//www.wolframalpha.com/widget/widget.jsp?id=9a998391102589c4f621a21fa9a2c656"></script>
+            </div>
+
+        </div>
+    </div>
+
+    <!--navigation-->
+    <span id="navigator"></span>
+       
+    <!--script after loading page-->
+    <script type="text/javascript" src="js/frame.js"></script>
+    <script type="text/javascript" src="js/solution.js"></script>
+
+</body>
+</html>

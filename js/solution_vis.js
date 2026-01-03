@@ -1,4 +1,3 @@
-
 document.getElementById("left").href = "algebra_vis.html";
 document.getElementById("right").href = "summary.html";
 
@@ -28,9 +27,15 @@ theta0_real = theta_real;
 acc_real = 0;
 w_real = 0;
 
+bob_r_real = 0.15;
+bob_area_real=Math.PI*bob_r_real*bob_r_real;
+bob_vol_real=1.33*Math.PI*bob_r_real*bob_r_real*bob_r_real;
+
 bob_r = 0.15; //m
 bob_area = Math.PI*bob_r*bob_r;
 bob_vol = 1.33*Math.PI*bob_r*bob_r*bob_r;
+
+chisqq = 0;
 
 //dt = 1/framerate;
 //let x;
@@ -124,7 +129,7 @@ function graph_physicalworld()
     t_real=0;
     t=-dt;
 
-    for (i = 0;i<800;i++){   
+    for (i = 0;i<600;i++){   
       f_real= -mass*gravity + density_real*bob_vol*gravity;
       let torq_real = f_real*sin(theta_real)/length - density_real*bob_area*w_real*length*length;
       acc_real = torq_real/mass;
@@ -146,9 +151,17 @@ function draw()
   pixelsPerMeter = windowHeight/2;
   background(255,255,250);
 
+  let torq = 0;
   //numerical solution of the equation of motion of pendulum
+  if(showSim){
   f = -mass*gravity + density*bob_vol*gravity;
-  let torq = f*sin(theta)/length - density*bob_area*w*length*length;
+  torq = f*sin(theta)/length - density*bob_area*w*length*length;
+  }
+  else{
+  f = -mass*gravity + density_real*bob_vol_real*gravity;
+  torq = f*sin(theta)/length - density_real*bob_area_real*w*length*length;
+  }
+
   acc = torq/mass;
   w += acc*dt;
   theta += w*dt;
@@ -223,7 +236,7 @@ function draw()
   pop();
 
   
-  // Plot the data  
+  // Plot the data 
   push();
   noFill();
   beginShape();
@@ -243,7 +256,7 @@ function draw()
   }
   endShape();
   pop();
- 
+
   // Plot theta, Velocity and Acceleration
   let pixelsPerUnitVel = 30; // 500 pixels = 1 radian
   let pixelsPerUnitAcc = 10; // 500 pixels = 1 radian
@@ -258,6 +271,7 @@ function draw()
   endShape();
   pop();
 
+  if (showVelocity) {
   push();
   noFill();
   beginShape();
@@ -268,7 +282,8 @@ function draw()
   }
   endShape();
   pop();
-
+  }
+  if (showAcceleration) {
   push();
   noFill();
   beginShape();
@@ -279,7 +294,7 @@ function draw()
   }
   endShape();
   pop();
-
+  }
 // Legend
   let legendItems = [
     { label: 'Fake Data: theta of the bob', color: [0,255,0, 200], value: 0 },
@@ -300,17 +315,20 @@ function draw()
   noFill();
   stroke(0);
 
-  text('chisq ' + round(chisqq*100)/100,20,30);
+  //text('chisq ' + round(chisqq*100)/100,20,30);
 
   updateEq();
 
   if (hist_theta.length==hist_real.length){
+      n = hist_real.length;
+      chisqq = 0;
       for (i = 0;i<hist_real.length;i++){   
           chisqq += (hist_real[i]-hist_theta[i])**2/hist_theta[i];
       }
-      chisqq = chisqq/hist_real.length; 
+      chisqq = chisqq/(n-1); 
       reset();
   }   
+  //text('chisqq ' + chisqq.toFixed(5),50,50);   
 }
 
 function mousePressed()
@@ -361,3 +379,38 @@ document.getElementById('t7').innerHTML = t7;
 document.getElementById('t8').innerHTML = t8;
 
 }
+
+// Add toggle state variables (default: shown)
+let showData = true;         // green: hist_real (fake data)
+let showSim = true;          // orange: hist_theta (model)
+let showVelocity = false;     // yellow: hist_w
+let showAcceleration = false; // blue: hist_acc
+
+// Attach button handlers once when page loads
+window.addEventListener('load', function () {
+  const btnData = document.getElementById('toggleDataBtn');
+  if (btnData) btnData.addEventListener('click', () => {
+    showData = !showData;
+    btnData.textContent = showData ? 'Hide Data' : 'Show Data';
+    //reset();
+  });
+
+  const btnSim = document.getElementById('toggleSimBtn');
+  if (btnSim) btnSim.addEventListener('click', () => {
+    showSim = !showSim;
+    btnSim.textContent = showSim ? 'Hide Model' : 'Show Model';
+    //reset();
+  });
+
+  const btnVel = document.getElementById('toggleVelocityBtn');
+  if (btnVel) btnVel.addEventListener('click', () => {
+    showVelocity = !showVelocity;
+    btnVel.textContent = showVelocity ? 'Hide Velocity' : 'Show Velocity';
+  });
+
+  const btnAcc = document.getElementById('toggleAccelerationBtn');
+  if (btnAcc) btnAcc.addEventListener('click', () => {
+    showAcceleration = !showAcceleration;
+    btnAcc.textContent = showAcceleration ? 'Hide Acceleration' : 'Show Acceleration';
+  });
+});
